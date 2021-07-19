@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Wwwision\Neos\MailChimp\Domain\Dto;
 
 use Neos\Flow\Persistence\QueryResultInterface;
+use Neos\Flow\Persistence\QueryInterface;
 
 /**
  * A QueryResult for the CallbackQuery
@@ -43,9 +44,9 @@ class CallbackQueryResult implements QueryResultInterface
     /**
      * Returns a clone of the query object
      *
-     * @return CallbackQuery
+     * @return QueryInterface
      */
-    public function getQuery()
+    public function getQuery(): QueryInterface
     {
         return clone $this->query;
     }
@@ -83,7 +84,7 @@ class CallbackQueryResult implements QueryResultInterface
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $this->initialize();
         return $this->results;
